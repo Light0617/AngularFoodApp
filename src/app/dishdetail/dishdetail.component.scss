@@ -1,0 +1,32 @@
+.form-full-width {
+    min-width: 150px;
+    max-width: 500px;
+    width:100%;
+}
+
+.input-full-width {
+    width:800px;
+}
+
+.material-icons.red100 {
+    color: #fa0000;
+}
+.material-icons.yellow100 {
+    color: #ffc800;
+}
+
+img{
+  height: 800px;
+  width: 100%;
+}
+
+.leftCard{
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.leftCardContent{
+  display: flex;
+  flex: 1;
+}

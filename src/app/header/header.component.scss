@@ -1,0 +1,33 @@
+$lt-gray: #ddd;
+$background-light: #ae81be;
+$background-dark: #76066c;
+$background-pale: #ae81be;
+$background-moredark: #4527A0;
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.jumbotron {
+    @include zero-margin(70px,30px);
+    background: $background-light ;
+    color:floralwhite;
+    min-height: 150px;
+}
+.active {
+    background: $background-dark;
+}
+
+.header{
+  height: 40vh;
+  background-image: linear-gradient(
+  to right bottom,
+      rgba($background-light,0.8),
+      rgba($background-dark,0.8)),
+  url('../../assets/header.jpg');
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0,100% 0, 100% 75vh, 0 100%);
+  //color:floralwhite;
+}
