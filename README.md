@@ -9,6 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 Copy the contents of the dist folder to the public folder of your json-server.
+Then run `json-server --watch db.json -d 1000` in json-server folder.
 Now your Angular application can be accessed at the link http://localhost:3000/.
 # Demo
 
