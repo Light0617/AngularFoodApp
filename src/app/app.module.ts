@@ -41,6 +41,7 @@ import { RestangularConfigFactory } from './shared/restConfig';
 import { LeaderComponent } from './leader/leader.component';
 import { HighlightDirective } from './directives/highlight.directive';
 
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     MatSlideToggleModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RestangularModule.forRoot(RestangularConfigFactory)
+    RestangularModule.forRoot(RestangularConfigFactory),
+    MatIconModule
   ],
   providers: [
     DishService,
