@@ -13,7 +13,7 @@ const feedbackRouter = require('./server/routes/feedbackRouter');
 const app = express();
 
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/conFusion';
+const url = 'mongodb://52.13.216.5:27017/conFusion';
 const connect = mongoose.connect(url);
 
 connect.then((db) => {
