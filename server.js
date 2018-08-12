@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist/conFusion')));
 
 app.use('/api', api);
 app.use('/users', usersRouter);
@@ -36,7 +36,7 @@ app.use('/feedbacks',feedbackRouter);
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/conFusion/index.html'));
 });
 
 
