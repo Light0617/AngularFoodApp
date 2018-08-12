@@ -12,13 +12,13 @@ const feedbackRouter = require('./server/routes/feedbackRouter');
 
 const app = express();
 
-// const mongoose = require('mongoose');
-// const url = 'mongodb://localhost:27017/conFusion';
-// const connect = mongoose.connect(url);
-//
-// connect.then((db) => {
-//     console.log("Connected correctly to server");
-// }, (err) => { console.log(err); });
+const mongoose = require('mongoose');
+const url = 'mongodb://localhost:27017/conFusion';
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+    console.log("Connected correctly to server");
+}, (err) => { console.log(err); });
 
 // Parsers for POST data
 app.use(bodyParser.json());
