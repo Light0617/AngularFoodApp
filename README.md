@@ -1,23 +1,26 @@
 # AngularFoodApp
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
-## Development server
-Run `json-server --watch db.json -d 1000` to launch json server to get data
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
--- $ng serve --open
+## Install related 
+- node : v10.8.0
+- nvm: 6.2.0
+- mongoDB
 
 ## Build
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-Copy the contents of the dist folder to the public folder of your json-server.
-Then run `json-server --watch db.json -d 1000` in json-server folder.
-Now your Angular application can be accessed at the link http://localhost:3000/.
-# Demo
+- Run `ng build --prod`. The build artifacts will be stored in the `dist/` directory.
+- Copy the contents of the dist folder to the public folder.
+
+## Quick start
+- in the mongo folder, type `mongod --dbpath=data --bind_ip 127.0.0.1`.
+- in the project folder, type `node server`
+
+## Demo
 
 ### Home
-![website homepage](./intro/home.png)
+![website homepage](./demo/home.png)
 ### Menu
-![website homepage](./intro/menu.png)
+![website homepage](./demo/menu.png)
 ### Dish
-![website homepage](./intro/dish.png)
+![website homepage](./demo/dish.png)
 ### AboutMe
-![website homepage](./intro/about.png)
+![website homepage](./demo/about.png)
