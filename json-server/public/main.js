@@ -1840,7 +1840,6 @@ var DishdetailComponent = /** @class */ (function () {
     }
     DishdetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('YYY===============');
         this.isLike = false;
         this.createForm();
         this.dishservice.getDishIds()
@@ -2317,7 +2316,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\"\n     fxLayout=\"column\"\n     fxLayoutGap=\"10px\">\n\n  <div fxFlex>\n    <div>\n      <h3> Menu </h3>\n      <hr>\n    </div>\n  </div>\n\n  <div fxFlex *ngIf=\"dishes\" [@expand]>\n     <mat-grid-list cols=\"2\" rowHeight=\"200px\">\n       <mat-grid-tile *ngFor=\"let dish of dishes\"\n                       [routerLink] = \"['/dishdetail', dish.id]\"\n                       appHighlight>\n        <p> {{dish.id}}</p>\n         <img height=\"200px\" src=\"{{BaseURL + dish.image}}\" alt={{dish.name}}>\n         <mat-grid-tile-footer>\n            <h1 matLine>{{dish.name | uppercase}}</h1>\n          </mat-grid-tile-footer>\n       </mat-grid-tile>\n     </mat-grid-list>\n  </div>\n  <div *ngIf=\"errMess\">\n    <h2>Error</h2>\n    <h4>{{errMess}}</h4>\n  </div>\n  <div [hidden]=\"dishes || errMess\">\n    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\"\n     fxLayout=\"column\"\n     fxLayoutGap=\"10px\">\n\n  <div fxFlex>\n    <div>\n      <h3> Menu </h3>\n      <h3> YOYO </h3>\n      <h3>{{dish1.name}}</h3>\n      <h3>{{evilResponseProps}}</h3>\n      <hr>\n    </div>\n  </div>\n\n  <p *ngFor=\"let prop of evilResponseProps\">\n    <p>{{prop}} : {{dish1[prop]}}</p>\n  </p>\n  <h2>==========================</h2>\n\n  <div fxFlex *ngIf=\"dishes\" [@expand]>\n     <mat-grid-list cols=\"2\" rowHeight=\"200px\">\n       <mat-grid-tile *ngFor=\"let dish of dishes\"\n                       [routerLink] = \"['/dishdetail', dish.id]\"\n                       appHighlight>\n          <p>{{dish.name}}</p>\n         <img height=\"200px\" src=\"{{BaseURL + dish.image}}\" alt={{dish.name}}>\n         <mat-grid-tile-footer>\n            <h1 matLine>{{dish.name | uppercase}}</h1>\n          </mat-grid-tile-footer>\n       </mat-grid-tile>\n     </mat-grid-list>\n  </div>\n  <div *ngIf=\"errMess\">\n    <h2>Error</h2>\n    <h4>{{errMess}}</h4>\n  </div>\n  <div [hidden]=\"dishes || errMess\">\n    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -2364,11 +2363,21 @@ var MenuComponent = /** @class */ (function () {
     function MenuComponent(dishService, BaseURL) {
         this.dishService = dishService;
         this.BaseURL = BaseURL;
+        this.goodResponse = [];
+        this.evilResponseProps = [];
     }
     MenuComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.dishService.getDishes()
-            .subscribe(function (dishes) { return _this.dishes = dishes; }, function (errmess) { return _this.errMess = errmess.message; });
+            .subscribe(function (dishes) {
+            _this.dishes = dishes;
+            _this.dish1 = dishes[0];
+            _this.evilResponseProps = Object.keys(_this.dish1);
+            for (var _i = 0, _a = _this.evilResponseProps; _i < _a.length; _i++) {
+                var prop = _a[_i];
+                _this.goodResponse.push(_this.dish1[prop]);
+            }
+        }, function (errmess) { return _this.errMess = errmess.message; });
     };
     MenuComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2613,6 +2622,7 @@ var PromotionService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "baseURL", function() { return baseURL; });
 var baseURL = 'http://localhost:3000/';
+// export const baseURL = 'http://52.13.216.5:3000/';
 
 
 /***/ }),
