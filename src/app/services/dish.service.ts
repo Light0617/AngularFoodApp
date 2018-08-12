@@ -19,8 +19,6 @@ export class DishService {
   }
 
   getDish(id: number): Observable<Dish> {
-    console.log('id=' + id);
-    console.log('id===============');
     return this.restangular.one('dishes', id).get();
   }
 

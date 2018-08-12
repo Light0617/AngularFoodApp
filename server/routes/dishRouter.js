@@ -45,19 +45,8 @@ dishRouter.route('/')
 
 dishRouter.route('/:dishId')
 .get((req,res,next) => {
-    console.log("loop===");
-      for (var key in req.params) {
-        if (req.params.hasOwnProperty(key)) {
-            console.log(key + " -> " + req.params[key]);
-        }
-    }
-    console.log("loop===");
     console.log("dishid=" +  req.params.dishId);
-    console.log('req====' + req.params);
-    console.log('req====');
-    let fakeid = "5b6d4e2be37659174d7a003e";
-    console.log("fakeid=" + fakeid)
-    Dishes.findById(fakeid)
+    Dishes.findById(req.params.dishId)
     .then((dish) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
