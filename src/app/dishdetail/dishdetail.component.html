@@ -8,6 +8,9 @@
 
   <div fxFlex="100">
       <h3>{{dish.name | uppercase}}</h3>
+      <div *ngFor="let id of dishIds">
+        <p>{{id}}</p>
+      </div>
       <hr>
   </div>
 

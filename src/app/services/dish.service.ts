@@ -18,8 +18,8 @@ export class DishService {
     return this.restangular.all('dishes').getList();
   }
 
-  getDish(id: number): Observable<Dish> {
-    return this.restangular.one('dishes', id).get();
+  getDish(_id: string): Observable<Dish> {
+    return this.restangular.one('dishes', _id).get();
   }
 
   getFeaturedDish(): Observable<Dish> {
@@ -28,9 +28,9 @@ export class DishService {
                .pipe(map(dishes => dishes[0]));
   }
 
-  getDishIds(): Observable<number[] | any> {
+  getDishIds(): Observable<string[] | any> {
     return this.getDishes()
-               .pipe(map(dishes => dishes.map(dish => dish.id))
+               .pipe(map(dishes => dishes.map(dish => dish._id))
                ,catchError(error => error));
   }
 }

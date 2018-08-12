@@ -30,9 +30,9 @@ export class DishdetailComponent implements OnInit {
 
   dish: Dish;
   dishcopy = null;
-  dishIds: number[];
-  prev: number;
-  next: number;
+  dishIds: string[];
+  prev: string;
+  next: string;
   comment: Comment;
   errMess: string;
   commentForm: FormGroup;
@@ -74,9 +74,8 @@ export class DishdetailComponent implements OnInit {
 
     this.dishservice.getDishIds()
         .subscribe(dishIds => this.dishIds = dishIds);
-    // this.route.params.pipe(switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(+params['id']); }))
     this.route.params.pipe(switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(params['id']); }))
-                   .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility = 'shown'; },
+                   .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish._id); this.visibility = 'shown'; },
                      errmess => this.errMess = <any>errmess);
 
   }
@@ -112,7 +111,7 @@ export class DishdetailComponent implements OnInit {
     }
   }
 
-  setPrevNext(dishId: number){
+  setPrevNext(dishId: string){
     const index = this.dishIds.indexOf(dishId);
     this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];
     this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];
